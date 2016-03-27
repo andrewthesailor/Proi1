@@ -13,6 +13,7 @@ polynomial& polynomial::operator+(const polynomial& poly)
 	this->deg_null=(poly.deg_null+this->deg_null);
 	this->deg_one=(poly.deg_one+this->deg_one);
 	this->deg_two=(poly.deg_two+this->deg_two);
+	cout<<this;
 	return (*this);
 }
 polynomial& polynomial::operator-(const polynomial& poly)
@@ -20,6 +21,7 @@ polynomial& polynomial::operator-(const polynomial& poly)
 	this->deg_null=(this->deg_null-poly.deg_null);
 	this->deg_one=(this->deg_one-poly.deg_one);
 	this->deg_two=(this->deg_two-poly.deg_two);
+	cout<<this;
 	return (*this);
 }
 polynomial& polynomial::operator+=(const polynomial& poly)
@@ -27,6 +29,7 @@ polynomial& polynomial::operator+=(const polynomial& poly)
     this->deg_null=(poly.deg_null+this->deg_null);
 	this->deg_one=(poly.deg_one+this->deg_one);
 	this->deg_two=(poly.deg_two+this->deg_two);
+	cout<<this;
 	return (*this);
 }
 polynomial& polynomial::operator-=(const polynomial& poly)
@@ -34,6 +37,7 @@ polynomial& polynomial::operator-=(const polynomial& poly)
     this->deg_null=(this->deg_null-poly.deg_null);
 	this->deg_one=(this->deg_one-poly.deg_one);
 	this->deg_two=(this->deg_two-poly.deg_two);
+	cout<<this;
 	return (*this);
 }
 // ^ end of override v additional methods
@@ -57,4 +61,15 @@ void polynomial::root()
 void polynomial::derivative()
 {
     cout<<"derivative is :"<<(this->deg_two)*2<<"x"<<this->deg_one;
+}
+istream& operator>>(istream& instream,polynomial& target)
+{
+    cout<<"enter polynomial as 3 integers";
+    cin>>target.deg_two>>target.deg_one>>target.deg_null;
+    return instream;
+}
+ostream& operator<<(ostream& outstream,const polynomial& target)
+{
+    cout<<"polynomial is: "<<target.deg_two<<"*x^2 "<<target.deg_one<<"*x "<<target.deg_null;
+    return outstream;
 }
