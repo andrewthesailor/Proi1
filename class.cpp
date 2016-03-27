@@ -7,6 +7,7 @@ polynomial::~polynomial()//destructor of class polynomial
 {
 
 }
+//override of basic operators
 polynomial& polynomial::operator+(const polynomial& poly)
 {
 	this->deg_null=(poly.deg_null+this->deg_null);
@@ -21,6 +22,21 @@ polynomial& polynomial::operator-(const polynomial& poly)
 	this->deg_two=(this->deg_two-poly.deg_two);
 	return (*this);
 }
+polynomial& polynomial::operator+=(const polynomial& poly)
+{
+    this->deg_null=(poly.deg_null+this->deg_null);
+	this->deg_one=(poly.deg_one+this->deg_one);
+	this->deg_two=(poly.deg_two+this->deg_two);
+	return (*this);
+}
+polynomial& polynomial::operator-=(const polynomial& poly)
+{
+    this->deg_null=(this->deg_null-poly.deg_null);
+	this->deg_one=(this->deg_one-poly.deg_one);
+	this->deg_two=(this->deg_two-poly.deg_two);
+	return (*this);
+}
+// ^ end of override v additional methods
 void polynomial::root()
 {
     double delta;
@@ -37,4 +53,8 @@ void polynomial::root()
     {
         cout<<"no roots, delta equals: "<<delta;
     }
+}
+void polynomial::derivative()
+{
+    cout<<"derivative is :"<<(this->deg_two)*2<<"x"<<this->deg_one;
 }
