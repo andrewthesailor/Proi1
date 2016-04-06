@@ -11,7 +11,7 @@ class polynomial
 		polynomial();//constructor of class
 		~polynomial();//class destructor
 		void derivative();//counts derivative of given object
-		friend ostream& operator<<(ostream &exit ,const polynomial &out);
+		friend ostream & operator<<(ostream &exit ,const polynomial &out);
 		friend istream& operator>>(istream &input,polynomial &in);
 		polynomial& operator+(const polynomial& added);
 		polynomial& operator+=(const polynomial &added);

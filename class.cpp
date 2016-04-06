@@ -94,7 +94,7 @@ istream& operator>>(istream& instream,polynomial& target)
 	cout<<"polynomial filled"<<endl;
     return instream;
 }
-ostream& operator<<(ostream& outstream,const polynomial& target)
+ostream & operator<<(ostream &outstream,const polynomial& target)
 {
     outstream<<"polynomial is: "<<target.deg_two<<"*x^2+( "<<target.deg_one<<")*x+( "<<target.deg_null<<")";
     return outstream;

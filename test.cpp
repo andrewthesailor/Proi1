@@ -5,41 +5,35 @@ using namespace std;
 bool is_int(string input) //is integral
 {
     int len=input.length();
-    bool flag=true;
-    for(int i=0;i<len;i++)
+	if(input[0]!='-'&&(input[0]<'0'||input[0]>'9'))
+		return false;
+    for(int i=1;i<len;i++)
     {
-        if(int(input[i])>47&&int(input[i])<58)
-        {
-        }
-        else
-        {
-            flag=false;
-            break;
-        }
+        if(input[i]<'0'||input[i]>'9')
+            return false;
     }
-    return flag;
+    return true;
 }
-bool comparator(string str1,string str2)
+/*bool comparator(string str1,string str2)
 {
-    bool flag=true;
-    unsigned int len=str1.length();
-    if(len!=str2.length())
-    {
-        for(unsigned int i=0;i<len;i++)
-        {
-            if(str1[i]!=str2[i])
-            {
-                flag=false;
-                break;
-            }
-        }
-    }
-    else
-    {
-        flag=false;
-    }
-    return flag;
-}
+	unsigned int len=str1.length();
+	if(len!=str2.length())
+	{
+		return false;
+	}
+	else
+	{
+		for(unsigned int i=0;i<len;i++)
+		{
+			if(str1[i]!=str2[i])
+			{
+				return false;
+				break;
+			}	
+		}
+	}
+	return true;
+}*/
 // V end of input, going to menu itself
 void help()
 {
@@ -53,37 +47,37 @@ void menu(polynomial p1, polynomial p2)
 	{ 
 		cin>>input;
 		cout<<endl;
-		if(comparator(input,"addition"))
+		if(input=="addition")
 			{
 				cout<<(p1+p2)<<endl;
 			}
-		else if(comparator(input,"subtraction"))
+		else if(input=="subtraction")
 			{
 				cout<<(p1-p2)<<endl;
 			}
-		else if(comparator(input,"increase"))
+		else if(input=="increase")
 			{
 				p1+=p2;
 				cout<<p1<<endl;
 			}
-		else if(comparator(input,"decrease"))
+		else if(input=="decrease")
 			{
 				p1-=p2;
 				cout<<p1<<endl;
 			}
-		else if(comparator(input,"derivative"))
+		else if(input=="derivative")
 			{
 				p1.derivative();
 				cout<<endl;
 			}
-		else if(comparator(input,"help"))
+		else if(input=="help")
 			{
 				help();
 			}
-		else if(comparator(input,"root"))
+		else if(input=="root")
 			{
 				p1.root();
 			}
 	}
-	while(!comparator(input,"end"));
+	while(input!="end");
 }
