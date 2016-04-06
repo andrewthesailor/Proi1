@@ -1,11 +1,13 @@
 #include"proj1.h"
+#include<cstdlib>
+#include"test.h"
 polynomial::polynomial()//constructor of class polynomial
 {
-
+    cout<<"New polynomial created"<<endl;
 }
 polynomial::~polynomial()//destructor of class polynomial
 {
-
+    cout<<"Polynomial destroyed"<<endl;
 }
 //override of basic operators
 polynomial& polynomial::operator+(const polynomial& poly)
@@ -64,8 +66,30 @@ void polynomial::derivative()
 }
 istream& operator>>(istream& instream,polynomial& target)
 {
+    string input;
+    bool flag=false;
     cout<<"enter polynomial as 3 integers";
-    cin>>target.deg_two>>target.deg_one>>target.deg_null;
+    do
+    {
+        cin>>input;
+        flag=is_int(input);
+    }
+    while(flag==false);
+    target.deg_two=atoi(input.c_str());
+    do
+    {
+        cin>>input;
+        flag=is_int(input);
+    }
+    while(flag==false);
+        target.deg_one=atoi(input.c_str());
+    do
+    {
+        cin>>input;
+        flag=is_int(input);
+    }
+    while(flag==false);
+        target.deg_null==atoi(input.c_str());
     return instream;
 }
 ostream& operator<<(ostream& outstream,const polynomial& target)
