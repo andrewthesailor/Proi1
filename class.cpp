@@ -49,6 +49,7 @@ void polynomial::root()
     delta=(this->deg_one)*(this->deg_one)-4*(this->deg_two)*(this->deg_null);
     if(delta>0)
     {
+	delta=sqrt(delta);
         cout<<"1st root:  "<<(delta-this->deg_one)/(2*this->deg_two)<<"    2nd root:   "<<((-1)*delta-this->deg_one)/(2*this->deg_two);
     }
     else if(delta==0)
@@ -62,7 +63,7 @@ void polynomial::root()
 }
 void polynomial::derivative()
 {
-    cout<<"derivative is :"<<(this->deg_two)*2<<"x"<<this->deg_one;
+    cout<<"derivative is :"<<(this->deg_two)*2<<"x+ "<<this->deg_one;
 }
 istream& operator>>(istream& instream,polynomial& target)
 {
@@ -71,29 +72,30 @@ istream& operator>>(istream& instream,polynomial& target)
     cout<<"enter polynomial as 3 integers";
     do
     {
-        cin>>input;
+        instream>>input;
         flag=is_int(input);
     }
     while(flag==false);
     target.deg_two=atoi(input.c_str());
     do
     {
-        cin>>input;
+        instream>>input;
         flag=is_int(input);
     }
     while(flag==false);
         target.deg_one=atoi(input.c_str());
     do
     {
-        cin>>input;
+        instream>>input;
         flag=is_int(input);
     }
     while(flag==false);
-        target.deg_null==atoi(input.c_str());
+        target.deg_null=atoi(input.c_str());
+	cout<<"polynomial filled"<<endl;
     return instream;
 }
 ostream& operator<<(ostream& outstream,const polynomial& target)
 {
-    cout<<"polynomial is: "<<target.deg_two<<"*x^2 "<<target.deg_one<<"*x "<<target.deg_null;
+    outstream<<"polynomial is: "<<target.deg_two<<"*x^2+( "<<target.deg_one<<")*x+( "<<target.deg_null<<")";
     return outstream;
 }

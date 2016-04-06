@@ -3,6 +3,7 @@
 #include<cstdio>
 #include<iostream>
 #include<iomanip>
+#include<cmath>
 using namespace std;
 class polynomial
 {
@@ -16,7 +17,7 @@ class polynomial
 		polynomial& operator+=(const polynomial &added);
 		polynomial& operator-(const polynomial &min);
 		polynomial& operator-=(const polynomial &min);
-        void root();
+        	void root();//counts roots of polynomial
 	private:
 		int deg_null;//contains polynomials part with degree of zero(1,2,3etc)
 		int deg_one;//contains polynomials part with degree of one(x,2x,etc)
