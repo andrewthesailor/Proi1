@@ -8,6 +8,5 @@
 using namespace std;
 
 bool is_int(string input);
-bool comparator(string str1,string str2);
 void menu(polynomial p1, polynomial p2);
 #endif

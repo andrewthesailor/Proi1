@@ -14,27 +14,6 @@ bool is_int(string input) //is integral
     }
     return true;
 }
-/*bool comparator(string str1,string str2)
-{
-	unsigned int len=str1.length();
-	if(len!=str2.length())
-	{
-		return false;
-	}
-	else
-	{
-		for(unsigned int i=0;i<len;i++)
-		{
-			if(str1[i]!=str2[i])
-			{
-				return false;
-				break;
-			}	
-		}
-	}
-	return true;
-}*/
-// V end of input, going to menu itself
 void help()
 {
 	cout<<"avaible commands: addition subtraction increase decrease derivative help root end"<<endl;
