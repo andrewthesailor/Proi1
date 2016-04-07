@@ -1,5 +1,5 @@
 OBJS=class.o main.o test.o
-CC=g++
+CXX=g++
 CFLAGS=-Wall
 LFLAGS=
 projekt1.out: $(OBJS) proj1.h test.h
